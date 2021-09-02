@@ -10,7 +10,7 @@ const searchBook = () => {
     searchField.value = "";
 
     // load data
-    const url = `http://openlibrary.org/search.json?q=${searchText}`
+    const url = `https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
         .then(res => res.json())
         .then(data => displaysearchresult(data))
@@ -23,9 +23,11 @@ const displaysearchresult = docs => {
     // chear-result clear
     searchresult.innerHTML = "";
 
+
+
     // total result found
     totaloutput.innerHTML = `
-        <h2 class="text-center text-info py-3">search result found ${docs.numFound}</h2>
+        <h2 class="text-center text-dark py-3 bg-info w-50 mx-auto">search result found ${docs.numFound}</h2>
     `
 
     const docs1 = docs.docs;
@@ -49,4 +51,4 @@ const displaysearchresult = docs => {
     })
 }
 
-// mozammal
+
