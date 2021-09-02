@@ -17,20 +17,25 @@ const searchBook = () => {
 
 }
 
-const displaysearchresult = docs => {
+const displaysearchresult = book => {
     const searchresult = document.getElementById('searchresult');
-    console.log(docs)
+    console.log(book)
     // chear-result clear
     searchresult.innerHTML = "";
 
 
 
     // total result found
-    totaloutput.innerHTML = `
-        <h2 class="text-center text-dark py-3 bg-info w-50 mx-auto">search result found ${docs.numFound}</h2>
-    `
 
-    const docs1 = docs.docs;
+    if (book.docs.length === 0) {
+        totaloutput.innerHTML = `<h2 class="text-center text-danger bg-info ">No Result found</h2>`
+    } else {
+        totaloutput.innerHTML = `
+        <h2 class="text-center text-dark py-3 bg-info">search result found ${book.numFound}</h2> `
+    }
+
+
+    const docs1 = book.docs;
     docs1.forEach(docst => {
         console.log(docst);
         const div = document.createElement('div')
